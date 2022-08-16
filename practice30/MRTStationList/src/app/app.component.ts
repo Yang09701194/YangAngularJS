@@ -10,33 +10,33 @@ declare var $:any;
 })
 export class AppComponent {
   title = 'MRTStationList';
-  //list = stationList;
+  list = stationList;
 
-  getList = function(): any{
-    var ls : any= [] ;
-    $.ajax({
-      type: 'GET',
-      dataType: 'json',
-      url: 'https://tcgmetro.blob.core.windows.net/stationnames/stations.json',
-      async: false,
-      success: function (data: any): any {
-        ls = data;
-      },
-      error: function (data: any): any {
-        alert('err: ' + data);
-      },
-    });
-    return ls;
-  }
+  // getList = function(): any{
+  //   var ls : any= [] ;
+  //   $.ajax({
+  //     type: 'GET',
+  //     dataType: 'jsonp',
+  //     url: 'https://tcgmetro.blob.core.windows.net/stationnames/stations.json',
+  //     async: false,
+  //     success: function (data: any): any {
+  //       ls = data;
+  //     },
+  //     error: function (data: any): any {
+  //       alert('err: ' + data);
+  //     },
+  //   });
+  //   return ls;
+  // }
 
-  list = this.getList();
+  // list = this.getList();
 
-  constructor() {  // Constructor
-    setTimeout(() => {
-    this.list = this.getList();
-    console.log('updated' + new Date().getSeconds())
-  }, 5000);
-  }
+  // constructor() {  // Constructor
+  //   setTimeout(() => {
+  //   this.list = this.getList();
+  //   console.log('updated' + new Date().getSeconds())
+  // }, 5000);
+  // }
 
 
 }

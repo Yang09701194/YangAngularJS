@@ -1,11 +1,50 @@
 
+<style>
 
+table {
+  border-spacing: 0;
+  width: 100%;
+}
+
+tr {
+  text-align: center;
+}
+th {
+  padding: 10px;
+}
+table tbody tr:nth-child(odd){
+  background-color: #eee
+}
+table tbody tr:nth-child(even){
+  background-color: lightblue
+}
+table thead {
+  background-color: lightsalmon;
+  color: white;
+}
+table thead th:first-child{
+  border-radius: 5px 0 0 0;
+  border: 3px solid salmon;
+}
+table thead 
+th:last-child{
+  border-radius: 0 5px 0 0;
+  border: 3px solid salmon;
+}
+table tbody tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+table tbody tr:last-child td:last-child{
+  border-radius: 0 0 5px 0;
+}
+</style>
 
 <table>
   
   <thead>
     <tr>
-      <th>列車進入月台車站之站名</th><th>行駛目的地</th><th>資料更新日期</th>
+      <th></th>
+      <th >列車進入月台車站之站名</th><th>行駛目的地</th><th>資料更新日期</th>
     </tr>
   </thead>
   <tbody>
