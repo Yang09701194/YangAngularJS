@@ -9,14 +9,42 @@
   </header>
 
   <section class="main" *ngIf="getList().length">
-    <ul class="todo-list" *ngFor="let todo of getList()">
-      <li class="view" >
-        <input class="toggle" type="checkbox">
-        <label for="">{{todo}}</label>
-        <button class="destroy"></button>
+    <input id="toggle-all" class="toggle-all" type="checkbox" style="background-color:green;" #toggleall [checked]="allCompleted()" (click)="setAllTo(toggleall.checked)" value="select all">
+    <label for="toggle-all"></label>
+    
+
+
+    <ul class="todo-list" *ngFor="let todo of getList(); let i = index"
+    [class.completed]="todo.done">
+      <li class="view" *ngIf="!todo.editmode">
+        <input class="toggle" type="checkbox" (click)="todo.toggleCompletion()" [checked]="todo.done" >
+        <label for="" (dblclick)="edit(todo)" >{{todo.getTitle()}}</label>
+        <button class="destroy" (click)="remove(i)"></button>
+      </li>
+      <input class="edit" *ngIf="todo.editmode" #editedtodo [value]="todo.getTitle()" (blur)="update(todo, editedtodo.value)" (keyup.enter)="update(todo, editedtodo.value)" (keyup.escape)="cancelEditing(todo)
+        " value="123" type="text">  
+    </ul>
+
+  </section>
+
+  <footer class="footer" *ngIf="getListAll().length > 0">
+    <span class="todo-count">
+      <strong>{{getRemainingList().length}}</strong>
+      {{ getRemainingList().length > 1 ? 'items' : 'item' }} left
+    </span>
+    <ul class="filters">
+      <li>
+        <a href="javascript:;" [class.selected]="checkStatus(todoStatusType.All)" (click)="setStatus(todoStatusType.All)">All</a>
+      </li>
+      <li>
+        <a href="javascript:;" [class.selected]="checkStatus(todoStatusType.Active)" (click)="setStatus(todoStatusType.Active)">Active</a>
+      </li>
+      <li>
+        <a href="javascript:;" [class.selected]="checkStatus(todoStatusType.Completed)" (click)="setStatus(todoStatusType.Completed)">Completed</a>
       </li>
     </ul>
-  </section>
+    <button class="clear-completed" *ngIf="getCompletedList().length" (click)="removeCompleted()">Clear completed</button>
+  </footer>
 
 </section>
 
