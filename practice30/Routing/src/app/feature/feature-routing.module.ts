@@ -3,8 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { FeatureComponent } from './feature.component'
 
 const routes: Routes = [
+  // {
+  //   path: 'feature',
+  //   component: FeatureComponent
+  // },
   {
-    path: 'feature',
+    path: '',
     component: FeatureComponent
   },
 ];

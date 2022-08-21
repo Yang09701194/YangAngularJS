@@ -36,8 +36,14 @@ const routes: Routes = [
         path: 'login',
         component: LoginComponent
       },
+
       {path:'**', redirectTo:'home', pathMatch:'full'},
     ]
+  },
+
+  {
+    path: 'feature',
+    loadChildren: () => import('./feature/feature.module').then(module => module.FeatureModule)
   },
 
 ];
