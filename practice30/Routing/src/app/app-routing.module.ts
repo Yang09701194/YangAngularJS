@@ -5,6 +5,7 @@ import { AboutComponent } from './about/about.component'
 import { LoginComponent } from './login/login.component'
 import { LayoutComponent } from './layout/layout.component';
 import { LayoutGuard } from './layout/layout.guard'
+import { EnsureLoginGuard } from './login/ensure-login.guard'
 
 const routes: Routes = [
   // {
@@ -37,7 +38,8 @@ const routes: Routes = [
       },
       {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        canDeactivate: [EnsureLoginGuard],
       },
       {
         path: 'feature',
