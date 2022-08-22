@@ -1,2 +1,3 @@
 <p>login works!</p>
-<button [routerLink]="'/home'">Login</button>
+<!-- <button [routerLink]="'/home'" [queryParams]="{name: 'test'}">Login</button> -->
+<button [routerLink]="'/home'" (click)="login()">Login</button>

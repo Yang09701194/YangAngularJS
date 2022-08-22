@@ -3,14 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { FeatureComponent } from './feature.component'
 
 const routes: Routes = [
-  // {
-  //   path: 'feature',
-  //   component: FeatureComponent
-  // },
   {
     path: '',
     component: FeatureComponent
   },
+  // {
+  //   path: '',
+  //   component: FeatureComponent
+  // },
+  // {
+  //   path: 'feature',
+  //   loadChildren: () => import('./feature.module').then(module => module.FeatureModule)
+  // },
 ];
 
 @NgModule({
